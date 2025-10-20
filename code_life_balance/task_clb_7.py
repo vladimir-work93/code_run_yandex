@@ -42,6 +42,7 @@
 # English
 # 1
 # English
+
 # Вывод
 # 1
 # English
@@ -60,7 +61,25 @@ def main():
     n = int(input())
     print(n)
     """
-    pass
+    list_sets = []
+
+    n_mans = int(input())
+
+    for _ in range(n_mans):
+        n_langs = int(input())
+        sets = {input() for _ in range(n_langs)}
+        list_sets.append(sets)
+
+    if list_sets:
+        set_mans_know = list_sets[0].intersection(*list_sets[1:])
+        set_in_one = set.union(*list_sets)
+    else:
+        set_mans_know = set()
+        set_in_one = set()
+
+    print(len(set_mans_know), *set_mans_know, sep='\n')
+    print(len(set_in_one), *set_in_one, sep='\n')
+
 
 
 if __name__ == '__main__':
